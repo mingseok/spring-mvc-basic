@@ -1,11 +1,10 @@
-package com.example.springmvcbasic.itemservice.domain.item;
+package com.example.springmvcbasic.domain.item;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class Item {
+
     private Long id;
     private String itemName;
     private Integer price;

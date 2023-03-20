@@ -1,4 +1,4 @@
-package com.example.springmvcbasic.itemservice.domain.item;
+package com.example.springmvcbasic.domain.item;
 
 import org.springframework.stereotype.Repository;
 
@@ -9,8 +9,9 @@ import java.util.Map;
 
 @Repository
 public class ItemRepository {
-    private static final Map<Long, Item> store = new HashMap<>(); //static 사용
-    private static long sequence = 0L; //static 사용
+
+    private static final Map<Long, Item> store = new HashMap<>(); //static
+    private static long sequence = 0L; //static
 
     public Item save(Item item) {
         item.setId(++sequence);
@@ -36,4 +37,5 @@ public class ItemRepository {
     public void clearStore() {
         store.clear();
     }
+
 }
