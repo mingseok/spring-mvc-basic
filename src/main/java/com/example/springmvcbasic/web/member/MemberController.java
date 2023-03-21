@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+
+
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/members")
@@ -24,7 +27,7 @@ public class MemberController {
     }
 
     @PostMapping("/add")
-    public String save(@Validated @ModelAttribute Member member, BindingResult bindingResult) {
+    public String save(@Valid @ModelAttribute Member member, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "members/addMemberForm";
         }

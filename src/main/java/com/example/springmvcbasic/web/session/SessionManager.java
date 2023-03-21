@@ -28,6 +28,7 @@ public class SessionManager {
         String sessionId = UUID.randomUUID().toString();
         sessionStore.put(sessionId, value);
 
+        //쿠키 생성
         Cookie mySessionCookie = new Cookie(SESSION_COOKIE_NAME, sessionId);
         response.addCookie(mySessionCookie);
     }
@@ -53,14 +54,12 @@ public class SessionManager {
         }
     }
 
-    private Cookie findCookie(HttpServletRequest request, String cookieName) {
+
+    public Cookie findCookie(HttpServletRequest request, String cookieName) {
         if (request.getCookies() == null) {
             return null;
         }
-        return Arrays.stream(request.getCookies())
-                .filter(cookie -> cookie.getName().equals(cookieName))
-                .findAny()
-                .orElse(null);
+        return Arrays.stream(request.getCookies()).filter(cookie -> cookie.getName().equals(cookieName)).findAny().orElse(null);
     }
 
 }
